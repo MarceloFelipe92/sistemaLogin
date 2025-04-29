@@ -1,11 +1,13 @@
 <?php
-session_start();
+// CHAMA O ARQUIVO ABAIXO NESTA TELA
 
-// Protege a página
-if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: sistema-login.php");
-    exit;
-}
+include "verificar-autenticacao.php";
+
+// INDICA QUAL PÁGINA ESTOU NAVEGANDO
+$pagina = "home";
+
+
+
 ?>
 
 <!DOCTYPE html>
@@ -28,52 +30,54 @@ if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
 </head>
 <body style="background-color:rgba(179, 248, 225, 0.2);">
 
-<?php include 'navbar.php'; ?>
-<?php include 'mensagens.php'; ?>
+<?php
+    include "mensagens.php";
+    include "navbar.php";
+    ?>
 
 <!-- Conteúdo Principal -->
-<div class="content py-5">
+<div class="content py-5 ">
   <div class="container">
     <h2 class="dashboard-heading text-center"><i class="fas fa-cogs me-2 text-primary"></i>Painel Administrativo</h2>
 
     <div class="row gy-4">
-      <!-- Futebol -->
+      <!-- Clientes -->
       <div class="col-md-6 col-lg-3">
         <div class="category-card border-start border-primary border-5">
-          <i class="fas fa-futbol text-primary"></i>
-          <h4>Futebol</h4>
-          <p>Gerencie todos os produtos de futebol no sistema.</p>
-          <a href="./futebol/dashboard.php" class="btn btn-outline-primary btn-sm">Acessar</a>
+          <i class="fas text-primary"></i>
+          <h4>Clientes (<?php echo isset($_SESSION["clientes"]) ? count($_SESSION["clientes"]) : 0; ?>)</h4>
+          <p>Gerencie todos os clientes no sistema.</p>
+          <a href="<?php echo $_SESSION["url"]; ?>/clientes" class="btn btn-outline-primary btn-sm">Acessar</a>
         </div>
       </div>
 
-      <!-- Natação -->
+      <!-- Fornecedores -->
       <div class="col-md-6 col-lg-3">
         <div class="category-card border-start border-success border-5">
-          <i class="fas fa-swimmer text-success"></i>
-          <h4>Natação</h4>
-          <p>Controle itens, estoque e vendas da categoria natação.</p>
-          <a href="./natacao/dashboard.php" class="btn btn-outline-success btn-sm">Acessar</a>
+          <i class="fas text-success"></i>
+          <h4>Fornecedores (<?php echo isset($_SESSION["fornecedores"]) ? count($_SESSION["fornecedores"]) : 0; ?>)</h4>
+          <p>Controle de todos os fornecedores no sistema.</p>
+          <a href="<?php echo $_SESSION["url"]; ?>/fornecedores" class="btn btn-outline-success btn-sm">Acessar</a>
         </div>
       </div>
 
-      <!-- Academia -->
+      <!-- Produtos -->
       <div class="col-md-6 col-lg-3">
         <div class="category-card border-start border-danger border-5">
-          <i class="fas fa-dumbbell text-danger"></i>
-          <h4>Academia</h4>
-          <p>Gerencie equipamentos e suplementos da academia.</p>
-          <a href="./academia/dashboard.php" class="btn btn-outline-danger btn-sm">Acessar</a>
+          <i class="fas  text-danger"></i>
+          <h4>Produtos (<?php echo isset($_SESSION["produtos"]) ? count($_SESSION["produtos"]) : 0; ?>)</h4>
+          <p>Gerencie todos os produtos no sistema.</p>
+          <a href="<?php echo $_SESSION["url"]; ?>/produtos" class="btn btn-outline-danger btn-sm">Acessar</a>
         </div>
       </div>
 
-      <!-- Realidade Aumentada -->
+      <!-- Vendas -->
       <div class="col-md-6 col-lg-3">
   <div class="category-card border-start border-warning border-5">
-    <i class="fas fa-glasses text-warning"></i>
-    <h4>Realidade Aumentada</h4>
-    <p>Gerencie produtos e experiências de AR no sistema.</p>
-    <a href="./realidadeAumentada/dashboard.php" class="btn btn-outline-warning btn-sm">Acessar</a>
+    <i class="fas  text-warning"></i>
+    <h4>Vendas (<?php echo isset($_SESSION["vendas"]) ? count($_SESSION["vendas"]) : 0; ?>)</h4>
+    <p>Acompanhe em tempo real todas as vendas no sistema.</p>
+    <a href="<?php echo $_SESSION["url"]; ?>/vendas" class="btn btn-outline-warning btn-sm">Acessar</a>
   </div>
 </div>
 

@@ -1,5 +1,12 @@
-<?php if (isset($mensagem)): ?>
-      <div class="alert alert-success"><?= $mensagem ?></div>
-    <?php elseif (isset($erro)): ?>
-      <div class="alert alert-danger"><?= $erro ?></div>
-    <?php endif; ?>
+<?php
+
+// SE HOUVER MENSAGEM DE ERRO, EXIBIR TEXTO
+if (isset($_SESSION["msg"])) {
+    echo '
+    <div class="alert alert-warning" role="alert">
+        ' . $_SESSION["msg"] . '
+    </div>
+    ';
+    // APÓS EXIBIR A MENSAGEM, REMOVER ELA DA SESSÃO
+    unset($_SESSION["msg"]);
+}
