@@ -24,30 +24,32 @@ $pagina = "produtos";
 
 <body style="background-color: rgba(179, 248, 225, 0.2);">
 
-    <?php include "../navbar.php";
-    include "../mensagens.php"; ?>
+    <?php
+    include "../mensagens.php";
+    include "../navbar.php";
+    ?>
 
-    <div class="container py-5">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="text-dark"><i class="fas fa-boxes-stacked me-2 text-danger"></i>Produtos Cadastrados</h2>
+    <div class="container py-5 shadow-sm bg-white rounded-5">
+        <div class="d-flex justify-content-between align-items-center  mb-4">
+            <h2 class="text-dark "><i class="fas fa-boxes-stacked me-2 "></i>Produtos Cadastrados</h2>
             <div>
-                <a href="detalhe-produto.php" class="btn btn-primary me-2"><i class="fas fa-plus"></i> Novo Produto</a>
+                <a href="detalhe-produto.php" class="btn btn-primary  me-2"><i class="fas fa-plus"></i> Novo Produto</a>
                 <a href="exportar.php" class="btn btn-success me-2"><i class="fas fa-file-excel"></i> Exportar Excel</a>
                 <a href="exportar.pdf.php" class="btn btn-danger"><i class="fas fa-file-pdf"></i> Exportar PDF</a>
             </div>
         </div>
 
-        <div class="table-responsive shadow-sm">
+        <div class="table-responsive shadow-sm rounded-4">
             <table class="table table-striped align-middle">
-                <thead class="table-light">
+                <thead class="table-dark text-uppercase">
                     <tr>
-                        <th>#</th>
-                        <th>Imagem</th>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Ações</th>
+                        <th class="text-light">#</th>
+                        <th class="text-light">Imagem</th>
+                        <th class="text-light">Nome</th>
+                        <th class="text-light">Descrição</th>
+                        <th class="text-light">Preço</th>
+                        <th class="text-light">Quantidade</th>
+                        <th class="text-light">Ações</th>
                     </tr>
                 </thead>
                 <tbody id="productTableBody">
@@ -79,11 +81,6 @@ $pagina = "produtos";
                                    <td colspan="7">
                                                     <div class="alert alert-info text-center p-4 mb-0 shadow-sm">
                                                         <i class="fas fa-info-circle fa-lg me-2 text-primary"></i>Nenhum produto cadastrado até o momento.
-                                                                <div class="mt-3">
-                                                                               <a href="detalhe-produto.php" class="btn btn-sm btn-outline-primary">
-                                                                               <i class="fas fa-plus"></i> Cadastrar Produto
-                                                                               </a>
-                                                                </div>
                                                     </div>
                                      </td>
                                 </tr>
@@ -97,8 +94,6 @@ $pagina = "produtos";
 
             </table>
         </div>
-
-
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

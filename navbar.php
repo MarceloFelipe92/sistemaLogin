@@ -30,47 +30,47 @@
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/contatos/formulario-contato.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "contatos" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/contatos/formulario-contato.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "contatos" ? ' active ' : ''; ?>">
       <i class="fas me-2"></i> Contatos
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/clientes" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "clientes" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/clientes" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "clientes" ? ' active ' : ''; ?>">
         <i class="fas me-2"></i> Clientes
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/fornecedores" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "fornecedores" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/fornecedores" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "fornecedores" ? ' active ' : ''; ?>">
         <i class="fas me-2"></i> Fornecedores
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/academia/listar-produtos.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "produtos" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/academia/listar-produtos.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "produtos" ? ' active ' : ''; ?>">
       <i class="fas  me-2"></i> Produtos
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/vendas" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "vendas" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/vendas" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "vendas" ? ' active ' : ''; ?>">
         <i class="fas  me-2"></i> Vendas
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/futebol" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "futebol" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/futebol" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "futebol" ? ' active ' : ''; ?>">
       <i class="fas me-2"></i> Futebol
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/academia/index.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "academia" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/academia/index.php" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "academia" ? ' active ' : ''; ?>">
       <i class="fas me-2"></i> Academia
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION["url"]; ?>/natacao" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "natacao" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/natacao" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "natacao" ? ' active ' : ''; ?>">
       <i class="fas me-2"></i> Natação
       </a>
     </li>
     <li class="nav-item">
-      <a href="<?php echo $_SESSION["url"]; ?>/realidade-aumentada" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "realidade-aumentada" ? ' active text-primary' : ''; ?>">
+      <a href="<?php echo $_SESSION["url"]; ?>/realidade-aumentada" class="nav-link d-flex align-items-center px-3 py-2 rounded hover-link <?php echo $pagina == "realidade-aumentada" ? ' active ' : ''; ?>">
       <i class="fas me-2"></i> Realidade Aumentada
       </a>
     </li>
