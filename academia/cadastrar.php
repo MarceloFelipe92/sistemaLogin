@@ -1,7 +1,7 @@
 <?php
 // CHAMA O ARQUIVO ABAIXO NESTA TELA
 include "../verificar-autenticacao.php";
-session_start();
+
 
 
 try {

@@ -1,109 +1,55 @@
 body {
-  background-color:rgba(209, 231, 221, 0.57);
-}
-  /* === SIDEBAR / MENU LATERAL === */
-  .sidebar {
-    width: 250px;
-    height: 100vh;
-    background-color: #2f3b36; /* grafite */
-    position: fixed;
-    z-index: 1000;
-    border-radius: 0 20px 20px 0;
-
+    background-color:rgba(209, 231, 221, 0.57);
   }
-  
-  .sidebar img:hover {
-    transform: scale(1.05);
-    border-color: #00e676; /* verde neon */
-  }
-  
-  /* === NAVBAR SUPERIOR === */
-  .navbar-custom {
-    background-color: #2f3b36; /* grafite */
-    margin-left: 250px;
-    padding: 20px 30px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 0 0 20px 20px;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-    z-index: 1100;
-    position: relative;
-  }
-  
-
-  
-  /* === LINKS DO MENU === */
-  .nav-link {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    color: #fff;
-    font-weight: 500;
-    padding: 10px 16px;
-    border:1px solid rgba(255, 255, 255, 0.623);
-    transition: all 0.3s ease;
-    text-decoration: none;
-  }
-  
-  
-  .nav-link:hover {
-    background-color: rgba(255, 255, 255, 0.062);
-    color: #00e676; /* verde neon */
-    transform: translateX(4px);
-  }
-  
-  
-  /* === CARDS DAS CATEGORIAS === */
-  .category-card {
-    border-radius: 15px;
-    padding: 30px;
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    /* === SIDEBAR / MENU LATERAL === */
+    .sidebar {
+      background-color: #00332c; 
+      z-index: 1000;
+      border-radius: 0 20px 20px 0;
+    }
     
-  }
+   
+    
+    /* === NAVBAR SUPERIOR === */
+    .navbar-custom {
+      background-color:#00332c; 
+      margin-left: 250px;
+      padding: 20px 30px;
+      border-radius: 0 0 20px 20px;
+      z-index: 1100;
+    }
+    
+    /* === CARDS DAS CATEGORIAS === */
+    .category-card {
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.2s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      
+    }
+    
+    .category-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    }
+   
+    
+    
+    /* === FORMULÁRIO === */
+    .form-container {
+      background: #00332c; 
+      padding: 5px;
+      border-radius: 5px;
+      box-shadow: 0 8px 5px rgba(0, 0, 0, 0.5);
+      border: 0.5px solid rgba(255, 255, 255, 0.05);
+      max-width: 1000px;
+      margin-left: 300px;
+      margin-top: 30px;
+      margin-bottom: 30px;
   
-  .category-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
-  }
+    }
   
-  .category-card .btn {
-    margin-top: 10px;
-    border: 1px solid #01030221;
-    transition: all 0.3s ease;
-  }
-  
+    
 
-  
- 
-  
-  /* === TITULOS === */
-  .dashboard-heading {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 30px;
-    color: #1c2420;
-  }
-  
-  
-  /* === FORMULÁRIO === */
-  .form-container {
-    background: #2f3b36;
-    padding: 5px;
-    border-radius: 5px;
-    box-shadow: 0 8px 5px rgba(0, 0, 0, 0.5);
-    border: 0.5px solid rgba(255, 255, 255, 0.05);
-    max-width: 1000px;
-    margin-left: 300px;
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-  }
-
-  
-  .form-container .h2 {
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #00e676;
-  }
-  
-  
+    
+    

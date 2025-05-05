@@ -2,6 +2,12 @@
 
 include "../verificar-autenticacao.php";
 
+$pagina = "produtos";
+
+if (isset($_GET["key"])) {
+  $key = $_GET["key"];
+  $product = $_SESSION["produtos"][$key];
+}
 
 ?>
 
@@ -24,17 +30,23 @@ include "../verificar-autenticacao.php";
   include "../navbar.php";
   ?>
 
-  <div class="form-container mt-5">
+  <div class="form-container mt-4 ">
+    <h1 class="text-center  text-white mb-4"><i class="fas fa-dumbbell  me-2"></i>Cadastro de Produto</h1>
+    <p class="text-center  text-white">Preencha os campos abaixo para cadastrar um novo produto do setor de academia.</p>
+    <a href="<?php echo $_SESSION["url"];?>/academia/index.php" class="btn  text-white btn-outline-success mb-2 ">
+        <i class="fas fa-arrow-left me-2  text-white"></i>Voltar
+      </a>
     <div class="card shadow-lg p-4">
-      <h2 class="mb-4 text-dark"><i class="fas fa-dumbbell me-2"></i>Cadastrar Produto de Academia</h2>
+      <h2 class="mb-2 text-dark"><i class="fas fa-dumbbell "></i></h2>
       <form method="POST" action="cadastrar.php" enctype="multipart/form-data">
-      <a href="detalhe-produto.php" class="btn btn-primary ms-2">
-          <i class="fas fa-plus me-1"></i>Novo Produto
-        </a>
+        <?php if (isset($key)) { ?>
+          <input type="hidden" name="productId" value="<?php echo $key; ?>">
+        <?php } ?>
+
         <hr>
         <div class="mb-3">
           <label for="productName" class="form-label">Nome do Produto</label>
-          <input type="text" name="productName" id="productName" class="form-control" required value="<?php echo isset($product) ? $product["productName"] : ""; ?>">
+          <input type="text"  name="productName" id="productName" class="form-control" required value="<?php echo isset($product) ? $product["productName"] : ""; ?>">
         </div>
 
         <div class="mb-3">
@@ -44,7 +56,7 @@ include "../verificar-autenticacao.php";
 
         <div class="mb-3">
           <label for="productPrice" class="form-label">Preço (R$)</label>
-          <input type="number" step="0.01" name="productPrice" id="productPrice" class="form-control" required value="<?php echo isset($product) ? $product["productPrice"] : ""; ?>" >
+          <input type="number" step="0.01" name="productPrice" id="productPrice" class="form-control" required value="<?php echo isset($product) ? $product["productPrice"] : ""; ?>">
         </div>
 
         <div class="mb-3">
@@ -54,27 +66,33 @@ include "../verificar-autenticacao.php";
 
         <div class="mb-3">
           <label for="productImage" class="form-label">Imagem do Produto</label>
-          <input type="file" name="productImage" id="productImage" class="form-control" accept="image/*" value="<?php echo isset($product) ? $product["productImage"] : ""; ?>"  >
+          <input type="file" name="productImage" id="productImage" class="form-control" accept="image/*">
         </div>
-        <?php
-                    if (isset($product["productImage"])) {
-                        echo '
-                    <div class="mb-3">
-                        <input type="hidden" name="currentProductImage" value="' . $product["productImage"] . '">
-                        <img width="100" src="imagens/' . $product["productImage"] . '" >
-                    </div>
-                    ';
-                    }
-                    ?>
 
-        <button type="submit" class="btn btn-success">
-          <i class="fas fa-save me-1"></i>Salvar Produto
-        </button>
+        <?php if (isset($product["productImage"])) { ?>
+          <div class="mb-3">
+            <input type="hidden" name="currentProductImage" value="<?php echo $product["productImage"]; ?>">
+            <img width="100" src="imagens/<?php echo $product["productImage"]; ?>">
+          </div>
+        <?php } ?>
 
-        <a href="listar-produtos.php" class="btn btn-info ms-2">
-          <i class="fas fa-list me-1"></i>Ver Produtos Cadastrados
-        </a>
-
+        <div class="row g-3">
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-outline-success w-100  shadow-sm">
+              <i class="fas fa-save me-2"></i>Salvar Produto
+            </button>
+          </div>
+          <div class="col-md-4">
+            <a href="listar-produtos.php" class="btn btn-outline-secondary w-100  shadow-sm">
+              <i class="fas fa-list me-2"></i>Ver Produtos Cadastrados
+            </a>
+          </div>
+          <div class="col-md-4">
+            <a href="detalhe-produto.php" class="btn btn-outline-primary w-100  shadow-sm">
+              <i class="fas fa-plus-circle me-2"></i>Novo Produto
+            </a>
+          </div>
+        </div>
       </form>
     </div>
   </div>
