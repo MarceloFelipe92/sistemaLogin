@@ -67,7 +67,7 @@ if (
               </div>
 
               <div class="d-grid">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" class="btn btn-outline-primary shadow-sm">
                   <i class="fas fa-sign-in-alt me-1"></i> Entrar
                 </button>
               </div>

@@ -5,8 +5,6 @@ include "../verificar-autenticacao.php";
 // INDICA QUAL PÁGINA ESTOU NAVEGANDO
 $pagina = "home";
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +16,8 @@ $pagina = "home";
   <link rel="stylesheet" href="../assets/css/admin-style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="../style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
 </head>
 <body style="background-color:rgba(179, 248, 225, 0.2);" >
 
@@ -43,7 +43,7 @@ $pagina = "home";
 
       <div class="mb-3">
         <label for="whatsapp" class="form-label">Whatsapp</label>
-        <input type="number"  name="whatsapp" id="whatsapp" class="form-control" required>
+        <input type="text" name="whatsapp" id="whatsapp" class="form-control" data-mask="(00) 00000-0000" required>
       </div>
 
       <div class="mb-3">
@@ -51,12 +51,18 @@ $pagina = "home";
         <textarea class="form-control" id="mensagem" name="mensagem" rows="4" required></textarea>
       </div>
 
-      <button type="submit" class="btn btn-success">
-        <i class="fas fa-save me-1"></i>Enviar
+      <button type="submit" class="btn btn-outline-success shadow-sm">
+        <i class="fas fa-save me-2"></i>Enviar
       </button>
     </form>
   </div>
 </div>
+
+<script>
+  $(document).ready(function() {
+    $('#whatsapp').mask('(00) 00000-0000');
+  });
+</script>
 
 </body>
 </html>
