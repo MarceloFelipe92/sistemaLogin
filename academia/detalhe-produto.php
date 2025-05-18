@@ -55,7 +55,7 @@ if (isset($_GET["key"])) {
         <hr>
         <div class="mb-3">
           <label for="productName" class="form-label">Nome do Produto</label>
-          <input type="text" name="productName" id="productName" class="form-control" required value="<?php echo isset($product) ? $product["productName"] : ""; ?>">
+          <input type="text"  name="productName" id="productName" class="form-control" required value="<?php echo isset($product) ? $product["productName"] : ""; ?>">
         </div>
 
         <div class="mb-3">
