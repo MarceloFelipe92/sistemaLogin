@@ -28,7 +28,7 @@ $pagina = "home";
 
 <div class="form-container mt-5">
   <div class="card shadow-lg p-4">
-    <h2 class="mb-4 text-dark"><i class="fas fa-dumbbell me-2"></i> Formulario de Contato</h2>
+    <h2 class="mb-4 text-dark"><i class="fas fa-envelope me-2"></i> Formulário de Contato</h2>
 <hr>
     <form method="POST" enctype="multipart/form-data" action="enviar-contato.php">
       <div class="mb-3">

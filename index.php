@@ -67,7 +67,7 @@ include "navbar.php";
       <div class="category-card border-start border-danger border-2">
         <h4><i class="fas fa-box-open me-2 text-danger"></i>Produtos (<?php echo isset($_SESSION["produtos"]) ? count($_SESSION["produtos"]) : 0; ?>)</h4>
         <p>Gerencie todos os produtos no sistema.</p>
-        <a href="<?php echo $_SESSION["url"]; ?>/produtos" class="btn btn-outline-danger w-100 mb-2">
+        <a href="<?php echo $_SESSION["url"]; ?>/todosProdutos" class="btn btn-outline-danger w-100 mb-2">
         <i class="fas fa-box-open"></i> Acessar
         </a>
       </div>

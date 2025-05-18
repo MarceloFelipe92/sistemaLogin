@@ -1,62 +1,46 @@
 <?php
-session_start();
+// CHAMA O ARQUIVO ABAIXO NESTA TELA
+include "../verificar-autenticacao.php";
 
-if (!isset($_SESSION['logado']) || $_SESSION['logado'] !== true) {
-    header("Location: ../sistema-login.php");
+
+
+try {
+    if (!$_POST) {
+        throw new Exception("Acesso indevido! Tente novamente.");
+    }
+
+    if ($_FILES["productImage"]["name"] != "") {
+        // PEGAR A EXTENSÃO DO ARQUIVO
+        $extensao = pathinfo($_FILES["productImage"]["name"], PATHINFO_EXTENSION);
+        // GERAR UM NOVO NOME PARA O ARQUIVO    
+        $novo_nome = md5(uniqid() . microtime()) . ".$extensao";
+        // MOVER O ARQUIVO PARA A PASTA DE IMAGENS
+        move_uploaded_file($_FILES["productImage"]["tmp_name"], "imagens/$novo_nome");
+        // ADICIONAR O NOME DO ARQUIVO NO POST
+        $_POST["productImage"] = $novo_nome;
+
+        // SE JÁ EXISTIR UMA IMAGEM CADASTRADA
+        if ($_POST["currentProductImage"] != "") {
+            // EXCLUIR IMAGEM DO PRODUTO
+            unlink("imagens/" . $_POST["currentProductImage"]);
+        } 
+    } else {
+        $_POST["productImage"] = $_POST["currentProductImage"];
+    }
+
+    if ($_POST["productId"] == "") {
+        $_SESSION["produtos-futebol"][] = $_POST; // PRODUTO NOVO
+        $msg = "Produto cadastrado com sucesso!";
+    } else {
+        // PRODUTO JÁ CADASTRADO
+        $_SESSION["produtos-futebol"][$_POST["productId"]] = $_POST;
+        $msg = "Produto atualizado com sucesso!";
+    }
+
+    $_SESSION["msg"] = $msg;
+} catch (Exception $e) {
+    $_SESSION["msg"] = $e->getMessage();
+} finally {
+    header("Location:../futebol/listar-produtos.php");
     exit;
 }
-?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Cadastrar Produto - Futebol</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/css/admin-style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="../style.css">
-</head>
-<body style="background-color:rgba(179, 248, 225, 0.2);">
-
-<?php include '../navbar.php'; ?>
-
-<div class="form-container mt-5">
-  <div class="card shadow-lg p-4">
-    <h2 class="mb-4 text-dark"><i class="fas fa-futbol me-2"></i>Cadastrar Produto de Futebol</h2>
-<hr>
-    <form method="POST" enctype="multipart/form-data">
-      <div class="mb-3">
-        <label for="nome" class="form-label">Nome do Produto</label>
-        <input type="text" name="nome" id="nome" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="descricao" class="form-label">Descrição</label>
-        <textarea name="descricao" id="descricao" class="form-control" rows="4" required></textarea>
-      </div>
-
-      <div class="mb-3">
-        <label for="preco" class="form-label">Preço (R$)</label>
-        <input type="number" step="0.01" name="preco" id="preco" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="estoque" class="form-label">Estoque</label>
-        <input type="number" name="estoque" id="estoque" class="form-control" required>
-      </div>
-
-      <div class="mb-3">
-        <label for="imagem" class="form-label">Imagem do Produto</label>
-        <input type="file" name="imagem" id="imagem" class="form-control" accept="image/*" required>
-      </div>
-
-      <button type="submit" class="btn btn-success">
-        <i class="fas fa-save me-1"></i>Salvar Produto
-      </button>
-    </form>
-  </div>
-</div>
-
-</body>
-</html>

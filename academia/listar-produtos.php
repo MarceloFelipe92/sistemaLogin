@@ -27,21 +27,21 @@ include "../verificar-autenticacao.php";
     include "../navbar.php";
     ?>
 
-    <div class="container py-5 shadow-sm bg-white rounded-5">
+    <div class="container py-5 card mt-4 bg-white rounded-5">
         <!-- Cabeçalho da página -->
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h2 class="text-dark"><i class="fas fa-boxes-stacked me-2"></i>Produtos Cadastrados</h2>
+            <h2 class="text-dark"><i class="fas fa-dumbbell me-2"></i>Produtos Cadastrados</h2>
             <a href="<?php echo $_SESSION["url"]; ?>/academia/index.php" class="btn btn-outline-success shadow-sm">
                 <i class="fas fa-arrow-left me-2"></i>Voltar
             </a>
             <div>
                 <!-- Botões de ações -->
-                <a href="detalhe-produto.php" class="btn btn-outline-primary shadow-sm"><i class="fas fa-plus"></i> Novo Produto</a>
-                <a href="exportar.php" class="btn btn-outline-success shadow-sm"><i class="fas fa-file-excel"></i> Exportar Excel</a>
-                <a href="exportar.pdf.php" class="btn btn-outline-danger shadow-sm"><i class="fas fa-file-pdf"></i> Exportar PDF</a>
+                <a href="../academia/detalhe-produto.php" class="btn btn-outline-primary shadow-sm"><i class="fas fa-plus"></i> Novo Produto</a>
+                <a href="../academia/exportar.php" class="btn btn-outline-success shadow-sm"><i class="fas fa-file-excel"></i> Exportar Excel</a>
+                <a href="../academia/exportar.pdf.php" class="btn btn-outline-danger shadow-sm"><i class="fas fa-file-pdf"></i> Exportar PDF</a>
 
                 <!-- Formulário de pesquisa -->
-                <form class="d-inline-block" method="GET" action="listar-produtos.php">
+                <form class="d-inline-block" method="GET" action="../academia/listar-produtos.php">
                     <div class="input-group">
                         <input type="text" name="search" class="form-control" placeholder="Pesquisar produtos..."
                             value="<?php echo isset($_GET['search']) ? htmlspecialchars($_GET['search']) : ''; ?>">
@@ -52,8 +52,8 @@ include "../verificar-autenticacao.php";
         </div>
 
         <!-- Tabela de produtos -->
-        <div class="table-responsive shadow-sm rounded-4">
-            <table class="table table-striped align-middle">
+        <div class="table-responsive card shadow-lg rounded-4">
+            <table class="table table-hover align-middle">
                 <thead class="table-dark text-uppercase">
                     <tr>
                         <th>#</th>
@@ -72,8 +72,8 @@ include "../verificar-autenticacao.php";
                     $produtosEncontrados = false;
 
                     // Verifica se há produtos cadastrados
-                    if (!empty($_SESSION["produtos"])) {
-                        foreach ($_SESSION["produtos"] as $key => $product) {
+                    if (!empty($_SESSION["produtos-musculacao"])) {
+                        foreach ($_SESSION["produtos-musculacao"] as $key => $product) {
                             // Filtra produtos com base no termo de pesquisa
                             if (!empty($termoPesquisa)) {
                                 $nomeProduto = strtolower($product["productName"]);
@@ -94,8 +94,8 @@ include "../verificar-autenticacao.php";
                                     <td>R$ ' . number_format($product["productPrice"], 2, ',', '.') . '</td>
                                     <td>' . $product["productQuantity"] . '</td>
                                     <td>
-                                        <a href="detalhe-produto.php?key=' . $key . '" class="btn btn-warning btn-sm me-2"><i class="fas fa-edit"></i> Editar</a>
-                                        <a href="remover.php?key=' . $key . '" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Excluir</a>
+                                        <a href="../academia/detalhe-produto.php?key=' . $key . '"  class="btn btn-sm btn-outline-primary btn-sm me-2 mb-2"><i class="fas fa-edit"></i> Editar</a>
+                                        <a href="../academia/remover.php?key=' . $key . '" class="btn btn-sm btn-outline-danger btn-sm me-2 mb-2"><i class="fas fa-trash"></i> Excluir</a>
                                     </td>
                                 </tr>';
                         }

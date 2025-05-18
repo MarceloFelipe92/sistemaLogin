@@ -2,11 +2,11 @@
 
 include "../verificar-autenticacao.php";
 
-$pagina = "produtos";
+$pagina = "produtos-musculacao";
 
 if (isset($_GET["key"])) {
   $key = $_GET["key"];
-  $product = $_SESSION["produtos"][$key];
+  $product = $_SESSION["produtos-musculacao"][$key];
 }
 
 ?>
@@ -33,12 +33,12 @@ if (isset($_GET["key"])) {
   <div class="form-container mt-5 ">
     <h1 class="text-center  text-white mb-4"><i class="fas fa-dumbbell  me-2"></i>Cadastro de Produto</h1>
     <p class="text-center  text-white">Preencha os campos abaixo para cadastrar um novo produto do setor de academia.</p>
-    <a href="<?php echo $_SESSION["url"]; ?>/academia/index.php" class="btn  text-white btn-outline-success mb-2 ">
+    <a href="../academia/index.php" class="btn  text-white btn-outline-success mb-2 ">
       <i class="fas fa-arrow-left me-2  text-white"></i>Voltar
     </a>
     <div class="card shadow-lg p-4">
       <h2 class="mb-2 text-dark"><i class="fas fa-dumbbell "></i></h2>
-      <form method="POST" action="cadastrar.php" enctype="multipart/form-data">
+      <form method="POST" action="../academia/cadastrar.php" enctype="multipart/form-data">
         <?php if (isset($key)) { ?>
           <input type="hidden" name="productId" value="<?php echo $key; ?>">
         <?php } ?>
@@ -87,20 +87,16 @@ if (isset($_GET["key"])) {
 
         <div class="row g-3">
           <div class="col-md-4">
-            <button type="submit" class="btn btn-outline-success w-100  shadow-sm">
+            <button href="../academia/cadastrar.php"type="submit" class="btn btn-outline-success w-100  shadow-sm">
               <i class="fas fa-save me-2"></i>Salvar Produto
             </button>
           </div>
           <div class="col-md-4">
-            <a href="listar-produtos.php" class="btn btn-outline-secondary w-100  shadow-sm">
+            <a href="../academia/listar-produtos.php" class="btn btn-outline-secondary w-100  shadow-sm">
               <i class="fas fa-list me-2"></i>Ver Produtos Cadastrados
             </a>
           </div>
-          <div class="col-md-4">
-            <a href="detalhe-produto.php" class="btn btn-outline-primary w-100  shadow-sm">
-              <i class="fas fa-plus-circle me-2"></i>Novo Produto
-            </a>
-          </div>
+         
         </div>
       </form>
     </div>

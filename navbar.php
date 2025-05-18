@@ -1,5 +1,5 @@
 <!-- Barra Superior -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+<nav class="navbar navbar-expand-lg shadow-lg navbar-dark navbar-custom">
   <div class="container-fluid justify-content-between">
     <!-- Título do Painel -->
     <h5 class="text-white m-0">
@@ -13,7 +13,7 @@
 </nav>
 
 <!-- Menu Lateral -->
-<nav class="sidebar position-fixed d-flex flex-column align-items-center text-white p-4 shadow" style="font-size: 0.9rem;">
+<nav class="sidebar position-fixed d-flex flex-column align-items-center shadow-lg text-white p-4 " style="font-size: 0.9rem;">
 
   <!-- Perfil do Usuário -->
   <div class="text-center w-100 mb-4 mt-2">
@@ -63,13 +63,13 @@
       <h6 class="text-white ">Produtos e Vendas</h6>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION['url']; ?>/produtos/listar-produtos.php" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'produtos' ? ' active ' : ''; ?>">
-        <i class="fas fa-box-open text-white me-2"></i> Produtos
+      <a href="<?php echo $_SESSION['url']; ?>/vendas" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'vendas' ? ' active ' : ''; ?>">
+        <i class="fas fa-shopping-cart text-white me-2"></i> Vendas
       </a>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION['url']; ?>/vendas" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'vendas' ? ' active ' : ''; ?>">
-        <i class="fas fa-shopping-cart text-white me-2"></i> Vendas
+      <a href="<?php echo $_SESSION['url']; ?>/todosProdutos" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'produtos' ? ' active ' : ''; ?>">
+        <i class="fas fa-box-open text-white me-2"></i> Produtos
       </a>
     </li>
 
@@ -98,7 +98,7 @@
       <h6 class=" text-white ">Tecnologia</h6>
     </li>
     <li class="nav-item mb-2">
-      <a href="<?php echo $_SESSION['url']; ?>/realidade-aumentada" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'realidade-aumentada' ? ' active ' : ''; ?>">
+      <a href="<?php echo $_SESSION['url']; ?>/RA" class="btn text-white btn-outline-success w-100 shadow-sm <?php echo $pagina == 'RA' ? ' active ' : ''; ?>">
         <i class="fas fa-vr-cardboard text-white me-2"></i> Realidade Aumentada
       </a>
     </li>

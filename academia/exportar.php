@@ -28,8 +28,8 @@ header("Pragma: no-cache");
         <!-- Os produtos serão carregados aqui via PHP -->
         <?php
         // SE HOUVER PRODUTOS NA SESSÃO, EXIBIR
-        if (!empty($_SESSION["produtos"])) {
-            foreach ($_SESSION["produtos"] as $key => $product) {
+        if (!empty($_SESSION["produtos-musculacao"])) {
+            foreach ($_SESSION["produtos-musculacao"] as $key => $product) {
                 echo '
                                 <tr>
                                     <th scope="row">' . ($key + 1) . '</th>
@@ -44,7 +44,7 @@ header("Pragma: no-cache");
         } else {
             echo '
                             <tr>
-                                <td colspan="7">Nenhum produto cadastrado</td>
+                                <td colspan="6">Nenhum produto cadastrado</td>
                             </tr>
                             ';
         }

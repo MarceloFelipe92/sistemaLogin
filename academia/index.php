@@ -28,7 +28,7 @@ $pagina = "home";
     <div class="container mt-4">
       <h3 class="mb-4"><i class="fas fa-dumbbell text-danger"></i> Painel de Gerenciamento - Academia</h3>
       <p class="text-muted">Gerencie os equipamentos, acessórios e suplementos voltados para musculação e treino físico.</p>
-      <a href="<?php echo $_SESSION["url"];?>./index.php" class="btn btn-outline-success  mt-3">
+      <a href="<?php echo $_SESSION["url"];?>index.php" class="btn btn-outline-success  mt-3">
         <i class="fas fa-arrow-left me-2"></i>Voltar
       </a>
       <hr>

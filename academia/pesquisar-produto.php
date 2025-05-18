@@ -6,11 +6,11 @@ if(isset($_GET['productName'])) {
     $idBuscado = $_GET['productName']; // Pega o valor do parâmetro GET
     
     // Verifica se existe produtos na sessão
-    if (!empty($_SESSION["produtos"])) {
+    if (!empty($_SESSION["produtos-musculacao"])) {
         $produtoEncontrado = null;
         
         // Procura o produto com ID correspondente
-        foreach ($_SESSION["produtos"] as $key => $product) {
+        foreach ($_SESSION["produtos-musculacao"] as $key => $product) {
             if($key == $idBuscado) {
                 $produtoEncontrado = $product;
                 break; // Sai do loop quando encontrar
@@ -28,8 +28,8 @@ if(isset($_GET['productName'])) {
                 <td>R$ ' . number_format($produtoEncontrado["productPrice"], 2, ',', '.') . '</td>
                 <td>' . $produtoEncontrado["productQuantity"] . '</td>
                 <td>
-                    <a href="detalhe-produto.php?key=' . $idBuscado . '" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                    <a href="remover.php?key=' . $idBuscado . '" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Excluir</a>
+                    <a href="../academia/detalhe-produto.php?key=' . $idBuscado . '" class="btn btn-sm btn-outline-primary btn-sm me-2 mb-2"<i class="fas fa-edit"></i> Editar</a>
+                    <a href="../academia/remover.php?key=' . $idBuscado . '" class="btn btn-sm btn-outline-danger btn-sm me-2"><i class="fas fa-trash"></i> Excluir</a>
                 </td>
             </tr>';
         } else {
@@ -40,8 +40,8 @@ if(isset($_GET['productName'])) {
     }
 } else {
     // Se não foi passado ID, mostra todos os produtos (código original)
-    if (!empty($_SESSION["produtos"])) {
-        foreach ($_SESSION["produtos"] as $key => $product) {
+    if (!empty($_SESSION["produtos-musculacao"])) {
+        foreach ($_SESSION["produtos-musculacao"] as $key => $product) {
             echo '
             <tr>
                 <th scope="row">' . ($key + 1) . '</th>
@@ -51,8 +51,8 @@ if(isset($_GET['productName'])) {
                 <td>R$ ' . number_format($product["productPrice"], 2, ',', '.') . '</td>
                 <td>' . $product["productQuantity"] . '</td>
                 <td>
-                    <a href="detalhe-produto.php?key=' . $key . '" class="btn btn-warning btn-sm"><i class="fas fa-edit"></i> Editar</a>
-                    <a href="remover.php?key=' . $key . '" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Excluir</a>
+                    <a href="../academia/detalhe-produto.php?key=' . $key . '" class="btn btn-sm btn-outline-primary btn-sm me-2 mb-2"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="../academia/remover.php?key=' . $key . '" class="btn btn-sm btn-outline-danger btn-sm me-2"><i class="fas fa-trash"></i> Excluir</a>
                 </td>
             </tr>';
         }

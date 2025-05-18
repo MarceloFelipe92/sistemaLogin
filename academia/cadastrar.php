@@ -23,17 +23,17 @@ try {
         if ($_POST["currentProductImage"] != "") {
             // EXCLUIR IMAGEM DO PRODUTO
             unlink("imagens/" . $_POST["currentProductImage"]);
-        }
+        } 
     } else {
         $_POST["productImage"] = $_POST["currentProductImage"];
     }
 
     if ($_POST["productId"] == "") {
-        $_SESSION["produtos"][] = $_POST; // PRODUTO NOVO
+        $_SESSION["produtos-musculacao"][] = $_POST; // PRODUTO NOVO
         $msg = "Produto cadastrado com sucesso!";
     } else {
         // PRODUTO JÁ CADASTRADO
-        $_SESSION["produtos"][$_POST["productId"]] = $_POST;
+        $_SESSION["produtos-musculacao"][$_POST["productId"]] = $_POST;
         $msg = "Produto atualizado com sucesso!";
     }
 
@@ -41,6 +41,6 @@ try {
 } catch (Exception $e) {
     $_SESSION["msg"] = $e->getMessage();
 } finally {
-    header("Location: listar-produtos.php");
+    header("Location:../academia/detalhe-produto.php");
     exit;
 }

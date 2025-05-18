@@ -5,8 +5,8 @@ require_once "../mpdf/vendor/autoload.php"; // CARREGAR BIBLIOTECA DO MPDF
 //dDEFINE TIMEZONE para brasil
 
 $lista = "";                  // SE HOUVER CLIENTES NA SESSÃO, EXIBIR
-if (!empty($_SESSION["produtos"])) {
-    foreach ($_SESSION["produtos"] as $key => $product) {
+if (!empty($_SESSION["produtos-musculacao"])) {
+    foreach ($_SESSION["produtos-musculacao"] as $key => $product) {
         $lista .= '
                                 <tr>
                                     <th scope="row">' . ($key + 1) . '</th>
@@ -21,7 +21,7 @@ if (!empty($_SESSION["produtos"])) {
 } else {
     echo '
                             <tr>
-                                <td colspan="7">Nenhum produto cadastrado</td>
+                                <td colspan="6">Nenhum produto cadastrado</td>
                             </tr>
                             ';
 }
