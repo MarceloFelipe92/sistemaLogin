@@ -27,7 +27,7 @@ include "../verificar-autenticacao.php";
     include "../navbar.php";
     ?>
 
-    <div class="container py-5 shadow-lg bg-white rounded-5">
+    <div class="container py-5 shadow-lg mt-4 bg-white rounded-5">
         <!-- Cabeçalho da página -->
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h2 class="text-dark"><i class="fas fa-truck me-2"></i>Fornecedores Cadastrados</h2>
